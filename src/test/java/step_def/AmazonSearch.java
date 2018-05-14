@@ -3,6 +3,7 @@ package step_def;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,17 +16,13 @@ import junit.framework.Assert;
 
 public class AmazonSearch extends TestBase{
 	
-	WebDriver driver;
-	
-	
+		
 	@Given("^User is on Amazon home Page$")
 	public void user_is_on_Amazon_home_Page() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Automation Test\\geckodriver.exe");
-		driver = new FirefoxDriver();
-		//System.setProperty("webdriver.chrome.driver", "C:\\Automation Test\\chromedriver.exe");
-		//driver = new ChromeDriver();
+				
+		initiateBrowser();
 		driver.get("https://www.amazon.co.uk");
-		driver.manage().window().maximize();
+		
 		String homePageTitle = driver.getTitle();
 		Assert.assertEquals("Amazon.co.uk: Low Prices in Electronics, Books, Sports Equipment & more", homePageTitle);
 	}
@@ -61,10 +58,7 @@ public class AmazonSearch extends TestBase{
 	@When("^I add the first book to the basket$")
 	public void i_add_the_first_book_to_the_basket(){
 	    
-		 /*WebElement item2 = driver.findElement(By.cssSelector("#s-results-list-atf>.li:nth-of-type(1).a-link-normal"));
-		Actions actions = new Actions (driver);
-		actions.moveToElement(item2).click().build().perform();*/
-		driver.findElement(By.partialLinkText("Java in 21 Days")).click();
+		 driver.findElement(By.linkText("Java in 21 Days, Sams Teach Yourself (Covering Java 8)")).click();
 		
 		//Add the book to basket
 		WebElement addToBasketBtn = driver.findElement(By.name("submit.add-to-cart"));
@@ -83,7 +77,6 @@ public class AmazonSearch extends TestBase{
 		
 		//Get the total
 		WebElement totalPrice2 = driver.findElement(By.cssSelector("#sc-subtotal-amount-activecart > span:nth-child(1)"));
-		//String totalPrice = driver(By.id("sc-subtotal-amount-activecart"));
 		String price = totalPrice2.getText();
 		System.out.println("Total price is: " + price);  
 		Assert.assertEquals("£32.99", price);

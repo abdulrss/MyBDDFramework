@@ -43,35 +43,35 @@ formatter.match({
   "location": "AmazonSearch.user_is_on_Amazon_home_Page()"
 });
 formatter.result({
-  "duration": 14488996903,
+  "duration": 10257522078,
   "status": "passed"
 });
 formatter.match({
   "location": "AmazonSearch.i_search_for_the_book()"
 });
 formatter.result({
-  "duration": 3238053704,
+  "duration": 5201503377,
   "status": "passed"
 });
 formatter.match({
   "location": "AmazonSearch.i_am_retured_a_list_of_correct_books()"
 });
 formatter.result({
-  "duration": 4992758,
+  "duration": 5494184,
   "status": "passed"
 });
 formatter.match({
   "location": "AmazonSearch.i_add_the_first_book_to_the_basket()"
 });
 formatter.result({
-  "duration": 3734693986,
+  "duration": 3393534752,
   "status": "passed"
 });
 formatter.match({
   "location": "AmazonSearch.i_check_the_basket_total()"
 });
 formatter.result({
-  "duration": 1698918909,
+  "duration": 3884849441,
   "status": "passed"
 });
 });
